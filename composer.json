@@ -1,0 +1,32 @@
+{
+    "name": "hughwilly/oioubl",
+    "version": "0.1.0",
+    "description": "Class library for creating and validating OIOUBL documents",
+    "require": {
+        "php": "^7.0",
+        "ext-xml": "*",
+        "ext-xsl": "*",
+        "illuminate/support": "^5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0|^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "HughWilly\\Oioubl\\": "src/",
+            "HughWilly\\OioublTests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "authors": [
+        {
+            "name": "Henrik Nordquist",
+            "email": "henrik@henriknordquist.dk"
+        }
+    ]
+}

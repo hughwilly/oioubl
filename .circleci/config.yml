@@ -1,0 +1,22 @@
+defaults: &defaults
+  working_directory: ~
+  docker:
+    - image: notnoopci/php:7.2-node-browsers
+
+version: 2
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - run: sudo docker-php-ext-install xml
+      - checkout
+      - run: curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+      - run: composer global require hirak/prestissimo:^0.3
+      - run: composer install -n --prefer-dist
+      - run: php vendor/bin/phpunit
+
+workflows:
+  version: 2
+  delivery-workflow:
+    jobs:
+      - build
